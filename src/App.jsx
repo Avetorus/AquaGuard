@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import { Home, Droplets, ShieldAlert, BookOpen, User, Map, Camera, Wind, Beaker, Pipette, Star, Clock, Send, ChevronRight, Search, SlidersHorizontal, Bell, Settings, BarChart3, History, CheckCircle2, AlertTriangle, XCircle, ArrowRight, Video, FileText, Lightbulb, BadgeCheck, Lock, Mail } from 'lucide-react';
+import { Home, Droplets, ShieldAlert, BookOpen, User, Map, Camera, Wind, Beaker, Pipette, Star, Clock, Send, ChevronRight, Search, SlidersHorizontal, Bell, Settings, BarChart3, History, CheckCircle2, AlertTriangle, XCircle, ArrowRight, Video, FileText, Lightbulb, BadgeCheck, Lock, Mail, LayoutGrid, CircleUserRound } from 'lucide-react';
 
 // Mock Data (Data Tiruan)
 // ==========================
@@ -67,11 +67,11 @@ const Button = ({ children, onClick, className = '', icon: Icon, variant = 'prim
 
 const BottomNav = ({ activeTab, setActiveTab }) => {
   const navItems = [
-    { name: 'Beranda', icon: Home },
+    { name: 'Beranda', icon: LayoutGrid },
     { name: 'Cek Air', icon: Droplets },
     { name: 'Lapor', icon: ShieldAlert },
     { name: 'Edukasi', icon: BookOpen },
-    { name: 'Profil', icon: User },
+    { name: 'Profil', icon: CircleUserRound },
   ];
 
   return (
