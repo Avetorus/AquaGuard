@@ -110,7 +110,7 @@ const LoginPage = ({ onLogin }) => {
             <div className="max-w-md w-full mx-auto">
                 <div className="text-center mb-8">
                     <Droplets className="mx-auto h-12 w-12 text-blue-600"/>
-                    <h1 className="mt-4 text-4xl font-extrabold text-gray-800" style={{ fontFamily: 'Poppins, sans-serif' }}>AquaGuard</h1>
+                    <h1 className="mt-4 text-4xl font-extrabold text-gray-800" style={{ fontFamily: 'Poppins, sans-serif' }}>PureShield</h1>
                     <p className="mt-2 text-gray-500">Jaga Kualitas Air, Jaga Kehidupan.</p>
                 </div>
                 
@@ -122,7 +122,7 @@ const LoginPage = ({ onLogin }) => {
                                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                                     <Mail className="h-5 w-5 text-gray-400" />
                                 </div>
-                                <input type="email" id="email" className="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500" placeholder="anda@email.com" defaultValue="sagita@aqua.com" required />
+                                <input type="email" id="email" className="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500" placeholder="anda@email.com" defaultValue="sagita@pure.com" required />
                             </div>
                         </div>
 
@@ -159,7 +159,7 @@ const HomePage = ({ setActiveTab }) => {
   return (
     <div className="space-y-6">
       <div className="text-center">
-        <h1 className="font-extrabold text-3xl text-gray-800" style={{fontFamily: 'Poppins, sans-serif'}}>AquaGuard</h1>
+        <h1 className="font-extrabold text-3xl text-gray-800" style={{fontFamily: 'Poppins, sans-serif'}}>PureShield</h1>
         <p className="text-gray-500 mt-1">Selamat datang, {mockUserData.name.split(' ')[0]}!</p>
       </div>
       <div className="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700 p-4 rounded-lg flex items-center">
