@@ -1,10 +1,10 @@
 import React, { useState, useMemo } from 'react';
-import { Droplets, ShieldAlert, BookOpen, Map, Camera, Pipette, Star, Clock, Send, ChevronRight, Search, SlidersHorizontal, Bell, Settings, BarChart3, History, CheckCircle2, AlertTriangle, XCircle, ArrowRight, Video, FileText, Lightbulb, BadgeCheck, Lock, Mail, Compass, UserCog } from 'lucide-react';
+import { Droplets, ShieldAlert, BookOpen, Map, Camera, Pipette, Star, Clock, Send, ChevronRight, ChevronLeft, Search, SlidersHorizontal, Bell, Settings, BarChart3, History, CheckCircle2, AlertTriangle, XCircle, ArrowRight, Video, FileText, Lightbulb, BadgeCheck, Lock, Mail, Compass, UserCog } from 'lucide-react';
 
 // Mock Data (Data Tiruan)
 // ==========================
 const mockUserData = {
-  name: 'Sagita',
+  name: 'Wellen',
   location: 'Jakarta Pusat',
   contributionPoints: 1250,
   reports: [
@@ -98,7 +98,6 @@ const BottomNav = ({ activeTab, setActiveTab }) => {
 // Halaman-halaman Aplikasi
 // ========================
 
-// Halaman Login Baru
 const LoginPage = ({ onLogin }) => {
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -122,7 +121,7 @@ const LoginPage = ({ onLogin }) => {
                                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                                     <Mail className="h-5 w-5 text-gray-400" />
                                 </div>
-                                <input type="email" id="email" className="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500" placeholder="anda@email.com" defaultValue="sagita@pure.com" required />
+                                <input type="email" id="email" className="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500" placeholder="anda@email.com" defaultValue="wellen@email.com" required />
                             </div>
                         </div>
 
@@ -136,19 +135,8 @@ const LoginPage = ({ onLogin }) => {
                             </div>
                         </div>
 
-                        <div className="flex items-center justify-between text-sm">
-                             <a href="#" className="font-medium text-blue-600 hover:text-blue-500">Lupa password?</a>
-                        </div>
-
                         <Button type="submit" variant="primary" className="w-full">Masuk</Button>
                     </form>
-
-                     <p className="mt-6 text-center text-sm text-gray-600">
-                        Belum punya akun?{' '}
-                        <a href="#" className="font-medium text-blue-600 hover:text-blue-500">
-                           Daftar sekarang
-                        </a>
-                    </p>
                 </Card>
             </div>
         </div>
@@ -181,7 +169,7 @@ const HomePage = ({ setActiveTab }) => {
       </Card>
        <div className="grid grid-cols-2 gap-4">
             <div onClick={() => setActiveTab('Cek Air')} className="bg-blue-50 p-4 rounded-lg text-center cursor-pointer hover:bg-blue-100 transition">
-                <Droplets className="mx-auto text-blue-600 h-8 w-8"/>
+                <Pipette className="mx-auto text-blue-600 h-8 w-8"/>
                 <p className="mt-2 font-semibold text-sm text-gray-700">Cek Air Mandiri</p>
             </div>
              <div onClick={() => setActiveTab('Lapor')} className="bg-red-50 p-4 rounded-lg text-center cursor-pointer hover:bg-red-100 transition">
@@ -192,24 +180,23 @@ const HomePage = ({ setActiveTab }) => {
       <div className="space-y-4">
         <h2 className="text-lg font-bold text-gray-800" style={{fontFamily: 'Poppins, sans-serif'}}>Info & Berita Terkini</h2>
         {mockNews.map(news => (
-          <div key={news.id} className="bg-white rounded-lg shadow-sm p-4 flex items-center space-x-4 hover:shadow-lg transition-shadow">
-             <div className="flex-shrink-0">
-                <div className={`p-3 rounded-full ${news.category === 'Pengumuman' ? 'bg-blue-100 text-blue-600' : news.category === 'Edukasi' ? 'bg-green-100 text-green-600' : 'bg-red-100 text-red-600'}`}>
-                   {news.category === 'Pengumuman' && <Bell className="h-5 w-5"/>}
-                   {news.category === 'Edukasi' && <BookOpen className="h-5 w-5"/>}
-                   {news.category === 'Peringatan' && <AlertTriangle className="h-5 w-5"/>}
-                </div>
+          <Card key={news.id} className="!p-4">
+            <div className="flex items-center space-x-4">
+               <div className="flex-shrink-0">
+                  <div className={`p-3 rounded-full ${news.category === 'Pengumuman' ? 'bg-blue-100 text-blue-600' : news.category === 'Edukasi' ? 'bg-green-100 text-green-600' : 'bg-red-100 text-red-600'}`}>
+                     {news.category === 'Pengumuman' && <Bell className="h-5 w-5"/>}
+                     {news.category === 'Edukasi' && <BookOpen className="h-5 w-5"/>}
+                     {news.category === 'Peringatan' && <AlertTriangle className="h-5 w-5"/>}
+                  </div>
+              </div>
+              <div className="flex-grow">
+                <p className="font-bold text-gray-800">{news.title}</p>
+                <p className="text-sm text-gray-500">{news.date}</p>
+              </div>
+               <ChevronRight className="flex-shrink-0 text-gray-400"/>
             </div>
-            <div className="flex-grow">
-              <p className="font-bold text-gray-800">{news.title}</p>
-              <p className="text-sm text-gray-500">{news.excerpt}</p>
-            </div>
-             <ChevronRight className="flex-shrink-0 text-gray-400"/>
-          </div>
+          </Card>
         ))}
-        <a href="#" onClick={(e) => { e.preventDefault(); setActiveTab('Edukasi'); }} className="text-blue-600 font-semibold text-sm flex items-center justify-end">
-          Lihat Semua Info <ArrowRight className="h-4 w-4 ml-1" />
-        </a>
       </div>
     </div>
   );
@@ -241,6 +228,7 @@ const CheckWaterPage = () => {
 
 const ReportPage = () => {
     const [view, setView] = useState('main');
+
     const getStatusChip = (status) => {
         switch (status) {
             case 'Selesai': return <span className="px-2 py-1 text-xs font-semibold text-green-800 bg-green-200 rounded-full">{status}</span>;
@@ -249,7 +237,50 @@ const ReportPage = () => {
             default: return <span className="px-2 py-1 text-xs font-semibold text-gray-800 bg-gray-200 rounded-full">{status}</span>;
         }
     };
-    if (view === 'form') { /* Omitted for brevity */ }
+    
+    if (view === 'form') {
+        return (
+             <div className="space-y-6">
+                <button onClick={() => setView('main')} className="text-blue-600 font-semibold mb-4 flex items-center">
+                    <ChevronLeft className="h-5 w-5 mr-1" /> Kembali
+                </button>
+                <h2 className="text-2xl font-bold text-gray-800" style={{fontFamily: 'Poppins, sans-serif'}}>Buat Laporan Baru</h2>
+                <Card>
+                    <form className="space-y-4">
+                         <div>
+                            <label className="block text-sm font-medium text-gray-700 mb-1">Kategori Laporan</label>
+                            <select className="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                                <option>Air Tercemar/Keruh</option>
+                                <option>Pipa Rusak/Bocor</option>
+                                <option>Sanitasi Tidak Layak</option>
+                                <option>Pembuangan Limbah Ilegal</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label className="block text-sm font-medium text-gray-700 mb-1">Deskripsi Masalah</label>
+                            <textarea rows="4" className="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500" placeholder="Jelaskan kondisi secara rinci..."></textarea>
+                        </div>
+                        <div>
+                             <label className="block text-sm font-medium text-gray-700 mb-1">Upload Foto/Video</label>
+                             <div className="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md">
+                                <div className="space-y-1 text-center">
+                                    <Camera className="mx-auto h-12 w-12 text-gray-400" />
+                                    <p className="text-sm text-gray-600">Klik untuk mengunggah bukti visual</p>
+                                     <p className="text-xs text-gray-500">PNG, JPG, MP4 hingga 10MB</p>
+                                </div>
+                             </div>
+                        </div>
+                        <div>
+                            <label className="block text-sm font-medium text-gray-700 mb-1">Lokasi Masalah</label>
+                            <input type="text" className="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500" placeholder="Contoh: Depan Balai Kota" />
+                        </div>
+                        <Button icon={Send} className="w-full">Kirim Laporan</Button>
+                    </form>
+                </Card>
+            </div>
+        )
+    }
+
     return (
         <div className="space-y-6">
             <h2 className="text-2xl font-bold text-gray-800 text-center" style={{ fontFamily: 'Poppins, sans-serif' }}>Lapor Masalah</h2>
