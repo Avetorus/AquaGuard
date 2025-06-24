@@ -4,7 +4,7 @@ import { Droplets, ShieldAlert, BookOpen, Map, Camera, Pipette, Star, Clock, Sen
 // Mock Data (Data Tiruan)
 // ==========================
 const mockUserData = {
-  name: 'Sagita',
+  name: 'Keenie',
   location: 'Jakarta Pusat',
   contributionPoints: 1250,
   reports: [
@@ -351,7 +351,7 @@ const ProfilePage = ({ onLogout }) => {
       <div className="space-y-6">
         <div className="flex flex-col items-center space-y-2">
             <img 
-                src="https://placehold.co/150x150/a7f3d0/166534?text=Sagita" 
+                src="https://placehold.co/150x150/a7f3d0/166534?text=Keenie" 
                 alt="Profile" 
                 className="w-24 h-24 rounded-full border-4 border-white shadow-lg object-cover"
             />
