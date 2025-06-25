@@ -351,7 +351,7 @@ const ProfilePage = ({ onLogout }) => {
       <div className="space-y-6">
         <div className="flex flex-col items-center space-y-2">
             <img 
-                src="https://placehold.co/150x150/a7f3d0/166534?text=Keenie" 
+                src="https://placehold.co/150x150/a7f3d0/166534?text=Sagita" 
                 alt="Profile" 
                 className="w-24 h-24 rounded-full border-4 border-white shadow-lg object-cover"
             />
