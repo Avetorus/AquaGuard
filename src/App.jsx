@@ -4,7 +4,7 @@ import { Droplets, ShieldAlert, BookOpen, Map, Camera, Pipette, Star, Clock, Sen
 // Mock Data (Data Tiruan)
 // ==========================
 const mockUserData = {
-  name: 'Keenie',
+  name: 'Sagita',
   location: 'Jakarta Pusat',
   contributionPoints: 1250,
   reports: [
